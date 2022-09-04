@@ -296,7 +296,13 @@
   function fade_in_promo(promo){
     const batch = $("#batch_select").val();
     const selector = get_batch_selector(batch);
-    $(".card" + promo + selector).fadeIn(update_futties_counter);
+    if(batch === "futties_123"){
+      $(".card" + promo + "[data-futties-1]").fadeIn(update_futties_counter);
+      $(".card" + promo + "[data-futties-2]").fadeIn(update_futties_counter);
+      $(".card" + promo + "[data-futties-3]").fadeIn(update_futties_counter);
+    } else {
+      $(".card" + promo + selector).fadeIn(update_futties_counter);
+    }
   }
 
   function display_filters(){
