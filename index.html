@@ -37,6 +37,7 @@
         <option value="futties_123">Futties 1-3 PP</option>
         <option value="campaign">Campaign Bag PP (6)</option>
         <option value="ss_pp">Shapeshifters PP (7)</option>
+        <option value="icons">93+ Icon Moments PP (8)</option>
         <option value="preseason_1">Preseason 1 (4)</option>
         <option value="futties_3">Futties 3 (3)</option>
         <option value="futties_2">Futties 2 (2)</option>
@@ -49,6 +50,10 @@
       <div>
         <input type="checkbox" id="toggleall" name="toggleall" checked>
         <label for="toggleall">Toggle All</label>
+      </div>
+      <div>
+        <input type="checkbox" id="icons" name="icons" checked>
+        <label for="icons">Icons</label>
       </div>
       <div>
         <input type="checkbox" id="shapeshifters" name="shapeshifters" checked>
@@ -141,6 +146,7 @@
     <div class="legend_line_wrapper"><div class='token_number_legend'>5</div><div class="legend_text">Preseason Batch 2 (in Packs until FIFA 23)</div> </div>
     <div class="legend_line_wrapper"><div class='token_number_legend'>6</div><div class="legend_text">Campaign Bag Player Pick</div> </div>
     <div class="legend_line_wrapper"><div class='token_number_legend'>7</div><div class="legend_text">Shapeshifters Player Pick</div> </div>
+    <div class="legend_line_wrapper"><div class='token_number_legend'>8</div><div class="legend_text">93+ Icon Moments PP</div> </div>
   </div>
   <div id="counters">
     <h3>Claimed: <span id="claimed"></span></h3>
@@ -304,6 +310,9 @@
       case "ss_pp":
         show_checkbox("shapeshifters");
         break;
+      case "icons":
+        show_checkbox("icons");
+        break;
       case "preseason_1":
         show_checkbox("shapeshifters");
         show_checkbox("tots");
@@ -462,6 +471,9 @@
     switch(batch){
       case "ss_pp":
         selector = "[data-shapeshifters-pick=1]";
+      break;
+      case "icons":
+        selector = "[data-rareflag=84]";
       break;
       case "preseason_1":
         selector = "[data-preseason-1=1]";	
@@ -714,6 +726,9 @@
         case "preseason_1":
         $("[data-preseason-1='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
         break;
+        case "icons":
+        $("[data-rareflag='84']").closest(".card.fifa22").fadeIn(update_futties_counter);
+        break;
         case "preseason_2":
         $("[data-preseason-2='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
         break;
@@ -791,6 +806,14 @@
         } else {
           $(".card.fantasypurple").fadeOut(update_futties_counter);
           $(".card.fantasyblue").fadeOut(update_futties_counter);
+        }
+      });
+
+      $("#icons").click(function () {
+        if (this.checked) {
+          fade_in_promo("[data-rareflag=84]");
+        } else {
+          $("[data-rareflag=84]").fadeOut(update_futties_counter);
         }
       });
 
@@ -992,6 +1015,7 @@
       $("[data-preseason-2]").append("<div class='token_number'>5</div>");
       $("[data-campaign-bag]").append("<div class='token_number'>6</div>");
       $("[data-shapeshifters-pick]").append("<div class='token_number'>7</div>");
+      $("[data-rareflag=84]").append("<div class='token_number'>8</div>");
       /* 
         $(this).html("");
         if (typeof $(this).parent().data('futties-1') !== 'undefined') {
