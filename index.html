@@ -16,8 +16,8 @@
     <div id="show_legend" class='token_number_legend'>?</div>
     <h1>FUT22 Collector</h1>
     <div id="futties_counters">
-      <h3>Collected: <span id="collected">0/429</span></h3>
-      <h3>Displaying: <span id="displaying">200/429</span></h3>
+      <h3>Collected: <span id="collected">0/475</span></h3>
+      <h3>Displaying: <span id="displaying">200/475</span></h3>
     </div>
     <div id="search">
       <input type="text" placeholder="..player name (lowercase)">
@@ -42,6 +42,7 @@
         <option value="futties_3">Futties 3 (3)</option>
         <option value="futties_2">Futties 2 (2)</option>
         <option value="futties_1">Futties 1 (1)</option>
+        <option value="all">Everything</option>
       </select>
 
 
@@ -289,13 +290,19 @@
 
   function update_futties_counter() {
     $("#collected").text($("#tokens .token-claimed.card:visible").length + "/" + $("#tokens .card:visible").length);
-    $("#displaying").text($("#tokens .card:visible").length + "/" + 429);
+    $("#displaying").text($("#tokens .card:visible").length + "/" + 475);
   }
 
   function fade_in_promo(promo){
     const batch = $("#batch_select").val();
     const selector = get_batch_selector(batch);
-    $(".card" + promo + selector).fadeIn(update_futties_counter);
+    if(batch === "futties_123"){
+      $(".card" + promo + "[data-futties-1]").fadeIn(update_futties_counter);
+      $(".card" + promo + "[data-futties-2]").fadeIn(update_futties_counter);
+      $(".card" + promo + "[data-futties-3]").fadeIn(update_futties_counter);
+    } else {
+      $(".card" + promo + selector).fadeIn(update_futties_counter);
+    }
   }
 
   function display_filters(){
@@ -313,6 +320,10 @@
       case "icons":
         show_checkbox("icons");
         break;
+      case "all":
+        $("#checkbox_wrapper input").show();
+        $("#checkbox_wrapper label").show();
+      break;
       case "preseason_1":
         show_checkbox("shapeshifters");
         show_checkbox("tots");
@@ -474,6 +485,9 @@
       break;
       case "icons":
         selector = "[data-rareflag=84]";
+      break;
+      case "all":
+        selector = ".card";
       break;
       case "preseason_1":
         selector = "[data-preseason-1=1]";	
@@ -725,6 +739,9 @@
         break;
         case "preseason_1":
         $("[data-preseason-1='1']").closest(".card.fifa22").fadeIn(update_futties_counter);
+        break;
+        case "all":
+        $(".card.fifa22").fadeIn(update_futties_counter);
         break;
         case "icons":
         $("[data-rareflag='84']").closest(".card.fifa22").fadeIn(update_futties_counter);
