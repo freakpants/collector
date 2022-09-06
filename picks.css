@@ -15,7 +15,7 @@ body {
   
   background-size: cover;
   /* background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url("futties_wall.png"); */
-   background-image: url("preseason.jpg");
+   background-image: url("manu.jpg");
    /* background-color: #e9f3ea; */
 }
 
@@ -152,9 +152,9 @@ body::-webkit-scrollbar {
 }
 
 .futties .card{
-  transform: scale(0.85);
-  width: 167px;
-  height: 250px;
+  transform: scale(0.65);
+  width: 128px;
+  height: 198px;
 }
 
 .futties.futties.futties .name{
@@ -249,8 +249,8 @@ spanish
 }
 
 .futties #tokens {
-  margin-left: 120px;
-  margin-right: 118px;
+  margin-left: -25px;
+  margin-right: 60px;
 }
 
 .futties #tokens::-webkit-scrollbar {
