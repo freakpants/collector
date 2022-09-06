@@ -542,15 +542,6 @@ h2 {
 .workrateLabels.fifa22 {
   left: -86px;
 }
-.card.fifa22.bronze {
-  font-family: UltimateTeamCondensed, sans-serif;
-  color: white;
-  text-shadow: none !important;
-  max-width: 227px;
-  height: 230px;
-  display: inline-block;
-}
-
 .card.fifa22 {
   cursor: pointer;
 }
@@ -1171,13 +1162,6 @@ h2 {
   margin-left: 2px;
   margin-top: -6px;
 }
-.scard.fifa22.bronze .player-card {
-  width: 140px;
-  aspect-ratio: 495/545;
-  position: relative;
-  left: 0px;
-  top: -8px;
-}
 .scard.fifa22 .rating-gradient {
   width: 36px;
   height: 105px;
@@ -1201,13 +1185,6 @@ h2 {
   border: 0;
   top: 23px;
   left: 17px;
-}
-.scard.fifa22.bronze .position {
-  top: 42px;
-  left: 15px;
-  font-size: 19px;
-  width: 30px;
-  font-weight: 300;
 }
 .scard.fifa22.goldrare {
   color: #452d19 !important;
@@ -1242,20 +1219,6 @@ h2 {
 .scard.fifa22.bronzeblue {
   color: #deb89e !important;
 }
-.scard.fifa22.bronze .clubbadge {
-  top: 83px !important;
-  left: 19px;
-  width: 22px;
-  height: 22px;
-  z-index: 1;
-}
-.scard.fifa22.bronze .nationflag {
-  top: 66px !important;
-  left: 18px;
-  width: 22px;
-  height: auto;
-  z-index: 1;
-}
 .scard.fifa22 .avatarholder {
   top: 28px;
   left: 49px;
@@ -1279,12 +1242,6 @@ h2 {
   width: 100%;
   height: auto;
 }
-.scard.fifa22.bronze .avatar {
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 80px;
-}
 
 .dynamic.dynamic.dynamic.dynamic.dynamic{
   top: 0px;
@@ -1300,18 +1257,6 @@ h2 {
   top: 34px;
 }
 
-.scard.fifa22.bronze .name {
-  line-height: 28px;
-  text-transform: uppercase;
-  top: 103px;
-  width: 100%;
-  font-size: 18px;
-  right: 0;
-  left: auto;
-  margin-top: 5px;
-  font-family: UltimateTeamCondensed, sans-serif;
-  font-weight: 500;
-}
 .generations .builder-background.squad.fifa17,
 .generations .builder-background.squad.fifa22 {
   background: url(../images/cardholder-generations.png?18);
@@ -1554,16 +1499,6 @@ h2 {
 .card.bronzeblue {
   color: #fff;
 }
-.scard.bronze {
-  display: block;
-  font-size: 14px;
-  text-shadow: 0 0 1px #fff;
-  top: -5px;
-  left: -5px;
-  width: 150px;
-  height: 180px;
-}
-
 .futties .scard {
   font-size: 28px;
 }
