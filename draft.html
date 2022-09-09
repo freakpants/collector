@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Draft</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="picks.css">
+    <link rel="stylesheet" href="draft.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Secular+One">
+</head>
+<h1>Draft</h1>
+<body class="futties">
+    <div id="tokens" class="futties"></div>
+    <!-- <img id="kimpembro" src="kimpembro-circle.png" alt="kimpembro" class="kimpembro"> -->
+    <img id="roundlogo" src="roundlogo.png" alt="kimpembro" class="kimpembro">
+    <button class="ut-iteminfochange-button-control btn-navigation-secondary" data-info-state="default"><span></span></button>
+</body>
+<script>
+    // add futties class to token div
+    pick = window.location.search.substr(1);
+    $.ajax({
+        url: "https://freakpants.github.io/collector/draft.json",
+    }).done(function (result) {
+        result.forEach(function (player) {
+            $('#tokens').append(player);
+        });
+
+        
+        $("div.card").hide();
+
+        let gk_ids = [];
+        const total_gk = $(".card.fifa22 .position").filter(':contains("GK")').length;
+
+        while(gk_ids.length < 2){
+            // random number between 0 and total_gk
+            const random_gk = Math.floor(Math.random() * total_gk);
+            if(gk_ids.includes(random_gk)){
+                continue;
+            }
+            $(".card.fifa22 .position").filter(':contains("GK"):eq(' + random_gk + ')').closest(".card.fifa22").show();
+            // add gk id to array
+            gk_ids.push(random_gk);
+        }
+
+        let def_ids = [];
+        const total_def = $(".card.fifa22 .position").filter(':contains("CB"),:contains("LB"),:contains("RB"),:contains("RWB"),:contains("LWB")').length;
+
+        while(def_ids.length < 6){
+            // random number between 0 and total_def
+            const random_def = Math.floor(Math.random() * total_def);
+            if(def_ids.includes(random_def)){
+                continue;
+            }
+            $(".card.fifa22 .position").filter(':contains("CB"),:contains("LB"),:contains("RB"),:contains("RWB"),:contains("LWB")').eq(random_def).closest(".card.fifa22").show();
+            // add def id to array
+            def_ids.push(random_def);
+        }
+
+        let mid_ids = [];
+        const total_mid = $(".card.fifa22 .position").filter(':contains("CM"),:contains("CDM"),:contains("CAM"),:contains("LM"),:contains("RM")').length;
+
+        while(mid_ids.length < 6){
+            // random number between 0 and total_mid
+            const random_mid = Math.floor(Math.random() * total_mid);
+            if(mid_ids.includes(random_mid)){
+                continue;
+            }
+            $(".card.fifa22 .position").filter(':contains("CM"),:contains("CDM"),:contains("CAM"),:contains("LM"),:contains("RM")').eq(random_mid).closest(".card.fifa22").show();
+            // add mid id to array
+            mid_ids.push(random_mid);
+        }
+
+        let fwd_ids = [];
+        const total_fwd = $(".card.fifa22 .position").filter(':contains("ST"),:contains("CF"),:contains("LW"),:contains("RW"),:contains("LF"),:contains("RF")').length;
+
+        while(fwd_ids.length < 9){
+            // random number between 0 and total_fwd
+            const random_fwd = Math.floor(Math.random() * total_fwd);
+            if(fwd_ids.includes(random_fwd)){
+                continue;
+            }
+            $(".card.fifa22 .position").filter(':contains("ST"),:contains("CF"),:contains("LW"),:contains("RW"),:contains("LF"),:contains("RF")').eq(random_fwd).closest(".card.fifa22").show();
+            // add fwd id to array
+            fwd_ids.push(random_fwd);
+        }
+
+        $(".ut-iteminfochange-button-control").click(function () {
+            const status = $(this).attr("data-info-state");
+            if (status == "default") {
+                $(".card:visible .avatarholder").hide();
+                $(".card:visible .position").hide();
+                $(".card:visible .rating").hide();
+                $(".card:visible .attributes").hide();
+                $(".card:visible .player-card").hide();
+                $(".card:visible").addClass("showing-league");
+                $(".card").prepend("<img src='generic.png' class='player-card generic'/>");
+                $(".card[data-league-id='1']").prepend("<img src='1.png' class='league'/><span class='league-name'>DEN 1</span>");
+                $(".card[data-league-id='10']").prepend("<img src='10.png' class='league'/><span class='league-name'>NED 1</span>");
+                $(".card[data-league-id='13']").prepend("<img src='13.png' class='league'/><span class='league-name'>ENG 1</span>");
+                $(".card[data-league-id='16']").prepend("<img src='16.png' class='league'/><span class='league-name'>FRA 1</span>");
+                $(".card[data-league-id='19']").prepend("<img src='19.png' class='league'/><span class='league-name'>GER 1</span>");
+                $(".card[data-league-id='31']").prepend("<img src='31.png' class='league'/><span class='league-name'>ITA 1</span>");
+                $(".card[data-league-id='53']").prepend("<img src='53.png' class='league'/><span class='league-name'>ESP 1</span>");
+                $(".card[data-league-id='308']").prepend("<img src='308.png' class='league'/><span class='league-name'>POR 1</span>");
+                $(".card[data-league-id='330']").prepend("<img src='332.png' class='league'/><span class='league-name'>ROM 1</span>");
+                $(".card[data-league-id='341']").prepend("<img src='341.png' class='league'/><span class='league-name'>MEX 1</span>");
+                $(".card[data-league-id='350']").prepend("<img src='350.png' class='league'/><span class='league-name'>SAU 1</span>");
+                $(".card[data-league-id='351']").prepend("<img src='351.png' class='league'/><span class='league-name'>AUS 1</span>");
+
+            } else {
+                $(".card:visible .avatarholder").show();
+                $(".card:visible .position").show();
+                $(".card:visible .rating").show();
+                $(".card:visible .attributes").show();
+                $(".card:visible .player-card").show();
+                $(".card:visible").removeClass("showing-league");
+                $(".card:visible .league").remove();
+                $(".card:visible .league-name").remove();
+                $(".card:visible .generic").remove();
+            }
+            $(this).attr("data-info-state", status == "default" ? "league" : "default");
+        });
+
+
+
+
+
+        /*
+        gk 1                 => 3
+        def 3-5 (4)          => 12
+        att 1-3 (2)          => 6
+        mid 3-6 (4.5)        => 13
+        */
+
+
+
+    });
+
+</script>
+
+</html>

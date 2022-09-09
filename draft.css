@@ -1,0 +1,17 @@
+body {
+  
+    background-size: cover;
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url("futties_wall.png"); */
+     background-image: url("preseason.jpg");
+     /* background-color: #e9f3ea; */
+  }
+
+  #tokens.futties {
+    margin-top: -25px;
+}
+
+.futties .card {
+    transform: scale(0.6);
+    width: 91px;
+    height: 156px;
+}
