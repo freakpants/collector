@@ -11,6 +11,25 @@
   position: relative;
 }
 
+#twitter_link{
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 2;
+}
+
+.futcoder{
+  cursor: pointer;
+}
+
+.futcoder{
+  pointer-events: all;
+}
+
+.futcoder img{
+  width: 142px;
+}
+
 #futties_reset{
   position: absolute;
   left: 114px;
