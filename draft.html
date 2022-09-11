@@ -31,7 +31,7 @@
         let gk_ids = [];
         const total_gk = $(".card.fifa22 .position").filter(':contains("GK")').length;
 
-        while(gk_ids.length < 2){
+        while(gk_ids.length < 3){
             // random number between 0 and total_gk
             const random_gk = Math.floor(Math.random() * total_gk);
             if(gk_ids.includes(random_gk)){
@@ -73,7 +73,7 @@
         let fwd_ids = [];
         const total_fwd = $(".card.fifa22 .position").filter(':contains("ST"),:contains("CF"),:contains("LW"),:contains("RW"),:contains("LF"),:contains("RF")').length;
 
-        while(fwd_ids.length < 9){
+        while(fwd_ids.length < 11){
             // random number between 0 and total_fwd
             const random_fwd = Math.floor(Math.random() * total_fwd);
             if(fwd_ids.includes(random_fwd)){
