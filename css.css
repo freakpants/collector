@@ -156,8 +156,11 @@ body.futties {
 }
 
 label {
-  color: white;
   font-family: "UltimateTeamCondensed";
+  background: linear-gradient( 99deg, rgba(2, 0, 36, 1) 0%, rgba(207, 70, 153, 1) 0%, rgba(208, 28, 98, 1) 100% );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #attribution {
