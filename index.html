@@ -310,6 +310,7 @@
     $('.marquee:not(:contains(' + string + '))').closest('.card').addClass("hidden-by-search");
     // set batch to everything
     $("#batch_select").val("all");
+    display_filters();
     $("#togglemissing").prop("checked", false);
     update_futties_counter();
   });
@@ -1074,6 +1075,7 @@
         }
         // set batch to everything
         $("#batch_select").val("all");
+        display_filters();
       });
 
       $("#batch_select").change((e) => {
