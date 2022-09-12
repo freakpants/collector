@@ -61,9 +61,9 @@
 }
 
 #batch_select{
-  top: 26px;
+  top: 60px;
     position: absolute;
-    right: 0px;
+    left: 0px;
     font-family: 'UltimateTeamCondensed';
     font-size: 20px;
     text-transform: uppercase;
@@ -138,8 +138,16 @@
   transform: scale(0.6);
   width: 158px;
   height: 225px;
+}
+
+.darken{
   filter: grayscale(1);
   opacity: 0.8;
+}
+
+.token-claimed .darken{
+  filter: grayscale(0);
+  opacity: 1;
 }
 
 .futties.futties.futties .name{
@@ -161,6 +169,8 @@ label {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    line-height: 27px;
 }
 
 #attribution {
@@ -228,10 +238,41 @@ label {
 #batch_wrapper{
   position: absolute;
   top: 59px;
-  right: 400px;
+  right: 350px;
   font-size: 14px;
     line-height: 9px
 }    
+
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: #fed796;
+  color: rgba(208, 28, 98, 1);
+  font-size: 33px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+  top: 46px;
+  position: absolute;
+  z-index: 1;
+  font-family: "UltimateTeamCondensed";
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
 
 .futties h1{
   background: linear-gradient(
@@ -275,16 +316,21 @@ label {
   display: none;
 }
 
+.unavailable.unavailable{
+  background: red;
+  color:white;
+}
+
 h3 {
-  font-family: "Tahoma";
-  font-size: 20px;
-  color: white;
+  font-family: "UltimateTeamCondensed";
+  font-size: 25px;
+  font-weight: 500;
   margin: 0;
   margin-bottom: 10px;
 }
 
 .mode-active.mode-active {
-  background-color: red;
+  background-color: #d62626;
 }
 
 .token-claimed.token-claimed.token-claimed.token-claimed::before {

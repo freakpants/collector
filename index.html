@@ -49,6 +49,10 @@
         <input type="checkbox" id="togglemissing" name="togglemissing">
         <label for="togglemissing">Hide unavailable batches</label>
       </div>
+      <div>
+        <input type="checkbox" id="togglesource" name="togglesource">
+        <label for="togglesource">Hide source for collected cards</label>
+      </div>
     </div>
     <div id="checkbox_wrapper" class="checkbox_wrapper_futties">
       <div>
@@ -552,7 +556,7 @@
   function add_darken_class() {
     $('#tokens div').each(function (index) {
       // if this has class token_source, dont darken
-      if (!$(this).hasClass('token_source') && !$(this).hasClass('token_objective') && !$(this).hasClass('token_objective_wrapper') && !$(this).hasClass('attributes')) {
+      if (!$(this).hasClass('card') && !$(this).hasClass('token_source') && !$(this).hasClass('token_objective') && !$(this).hasClass('token_objective_wrapper') && !$(this).hasClass('attributes')) {
         $(this).addClass('darken');
       }
     });
@@ -1007,7 +1011,13 @@
         }
       });
 
-
+      $("#togglesource").click(function () {
+        if (!this.checked) {
+          $(".token-claimed .token_number").show();
+        } else {
+          $(".token-claimed .token_number").hide();
+        }
+      });
 
       $("#togglemissing").click(function () {
         if (!this.checked) {
@@ -1130,14 +1140,14 @@
 
       // remove the html in all token numbers
       $('.token_number').remove();
-      $("[data-futties-1]").append("<div class='token_number'>1</div>");
-      $("[data-futties-2]").append("<div class='token_number'>2</div>");
-      $("[data-futties-3]").append("<div class='token_number'>3</div>");
-      $("[data-preseason-1]").append("<div class='token_number'>4</div>");
-      $("[data-preseason-2]").append("<div class='token_number'>5</div>");
-      $("[data-campaign-bag]").append("<div class='token_number'>6</div>");
-      $("[data-shapeshifters-pick]").append("<div class='token_number'>7</div>");
-      $("[data-rareflag=84]").append("<div class='token_number'>8</div>");
+      $("[data-futties-1]").append("<div class='token_number tooltip unavailable'>1<span class='tooltiptext'>Futties Batch 1 (unavailable)</span></div>");
+      $("[data-futties-2]").append("<div class='token_number tooltip unavailable'>2<span class='tooltiptext'>Futties Batch 2 (unavailable)</span></div>");
+      $("[data-futties-3]").append("<div class='token_number tooltip unavailable'>3<span class='tooltiptext'>Futties Batch 3 (unavailable)</span></div>");
+      $("[data-preseason-1]").append("<div class='token_number tooltip unavailable'>4<span class='tooltiptext'>Preseason Batch 1 (unavailable)</span></div>");
+      $("[data-preseason-2]").append("<div class='token_number tooltip'>5<span class='tooltiptext'>Preseason Batch 2 (in Packs until Sep 23)</span></div>");
+      $("[data-campaign-bag]").append("<div class='token_number tooltip'>6<span class='tooltiptext'>Campaign Bag PP</span></div>");
+      $("[data-shapeshifters-pick]").append("<div class='token_number tooltip'>7<span class='tooltiptext'>Shapeshifter PP</span></div>");
+      $("[data-rareflag=84]").append("<div class='token_number tooltip'>8<span class='tooltiptext'>93+ Icon Moments PP</span></div>");
       /* 
         $(this).html("");
         if (typeof $(this).parent().data('futties-1') !== 'undefined') {
