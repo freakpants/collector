@@ -30,7 +30,7 @@
   width: 142px;
 }
 
-#futties_reset{
+#export_link{
   position: absolute;
   left: 114px;
   top: 60px;
@@ -5909,11 +5909,6 @@ h2 {
     overflow-y: scroll;
   }
 
-  #futties_reset{
-    position: absolute;
-    left: 74px;
-    top: 270px;
-  }
   .futties .btn-standard {
     width: 370px;
     height: 100px;
