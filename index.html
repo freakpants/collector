@@ -172,7 +172,7 @@
     </div>
     <div class="legend_line_wrapper">
       <div class='token_number_legend'>6</div>
-      <div class="legend_text">Campaign Bag Player Pick</div>
+      <div class="legend_text">Campaign Bag Player Pick (unavailable)</div>
     </div>
     <div class="legend_line_wrapper">
       <div class='token_number_legend'>7</div>
@@ -1639,6 +1639,10 @@ cardArray = [
             value: "preseason_1",
             text: 'Preseason 1 (4)'
           }));
+          $('#batch_select').append($('<option>', {
+            value: "campaign",
+            text: 'Campaign Bag PP (6)'
+          }));
 
           document.max_futties = cardArray.length;
         } else {
@@ -1650,15 +1654,16 @@ cardArray = [
           $("#batch_select option[value='futties_3']").remove();
           $("#batch_select option[value='futties_123']").remove();
           $("#batch_select option[value='preseason_1']").remove();
+          $("#batch_select option[value='campaign']").remove();
 
           // hide every card from unavailable batches
-          $("[data-futties-1=1],[data-futties-2=1],[data-futties-3=1],[data-preseason-1=1]").each(function () {
+          $("[data-futties-1=1],[data-futties-2=1],[data-futties-3=1],[data-preseason-1=1],[data-campaign-bag=1]").each(function () {
             $(this).addClass("unavailable");
             $(this).fadeOut();
           });
 
           // then show cards from available batches again
-          $("[data-preseason-1=1],[data-campaign-bag=1],[data-shapeshifters-pick=1],[data-preseason-2=1],.legend").each(function () {
+          $("[data-preseason-1=1],[data-shapeshifters-pick=1],[data-preseason-2=1],.legend").each(function () {
             $(this).removeClass("unavailable");
             $(this).fadeIn(update_futties_counter);
           });
@@ -1725,7 +1730,7 @@ cardArray = [
       $("[data-futties-3]").append("<div class='token_number tooltip unavailable'>3<span class='tooltiptext'>Futties Batch 3 (unavailable)</span></div>");
       $("[data-preseason-1]").append("<div class='token_number tooltip unavailable'>4<span class='tooltiptext'>Preseason Batch 1 (unavailable)</span></div>");
       $("[data-preseason-2]").append("<div class='token_number tooltip'>5<span class='tooltiptext'>Preseason Batch 2 (in Packs until Sep 23)</span></div>");
-      $("[data-campaign-bag]").append("<div class='token_number tooltip'>6<span class='tooltiptext'>Campaign Bag PP</span></div>");
+      $("[data-campaign-bag]").append("<div class='token_number tooltip unavailable'>6<span class='tooltiptext'>Campaign Bag PP</span></div>");
       $("[data-shapeshifters-pick]").append("<div class='token_number tooltip'>7<span class='tooltiptext'>Shapeshifter PP</span></div>");
       $("[data-rareflag=84]").append("<div class='token_number tooltip'>8<span class='tooltiptext'>93+ Icon Moments PP</span></div>");
       /* 
